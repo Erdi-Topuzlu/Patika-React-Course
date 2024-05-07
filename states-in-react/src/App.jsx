@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Counter from './components/Counter';
+import InputState from './components/InputState';
 
 function App() {
 
@@ -11,7 +12,13 @@ function App() {
 
   return (
     <>
+      <InputState />
+      <hr />
+      <br />
+
       <Counter />
+      <hr />
+      <br />
 
       <h1>Merhaba {name}!</h1>
       <h2>{age}</h2>
