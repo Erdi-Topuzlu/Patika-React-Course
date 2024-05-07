@@ -1,16 +1,23 @@
 import './App.css'
 import Header from './components/Header'
-
-const name = "Erdi";
-const surname = "Topuzlu";
-const isLoggedIn = false;
+import User from './components/User';
 
 function App() {
 
   return (
     <>
       <Header />
-      <h1>{isLoggedIn ? name + " " + surname : "Giriş Yapın!"}</h1>
+      <User 
+        name="Erdi" 
+        surname="Topuzlu" 
+        isLoggedIn={true} 
+        age={32} 
+        friends={["Serhan", "Onur", "Fırat"]}
+        address={{
+          city : "Avcılar / İstanbul",
+          zip : 34315
+        }} />
+            
     </>
   )
 }
