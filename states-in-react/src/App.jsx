@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Counter from './components/Counter';
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
 
   return (
     <>
+      <Counter />
+
       <h1>Merhaba {name}!</h1>
       <h2>{age}</h2>
       <button onClick={() => {setName("Serhan");}}>Change Name</button>
