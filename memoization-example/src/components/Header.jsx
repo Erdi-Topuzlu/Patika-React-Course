@@ -1,10 +1,15 @@
 import React from 'react'
 
-function Header() {
+function Header({data}) {
     console.log("Header Component Re-rendered");
   return (
     <div>
       Header
+      <br />
+      <br />
+      <code>
+        {JSON.stringify(data)}
+      </code>
     </div>
   )
 }
