@@ -1,30 +1,29 @@
 import "./App.css";
-import { Formik } from "formik";
+import { useFormik } from "formik";
 
 function App() {
-  return (
-    <>
-      <h1>Sign Up</h1>
-      <Formik
-        initialValues={{
-          firstName: "Erdi",
+  const formik = useFormik({
+    initialValues: {
+      firstName: "Erdi",
           lastName: "Topuzlu",
           email: "erditpzl@gmail.com",
           gender: "male",
           hobies : [],
           country : "Turkey",
-        }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {({ handleSubmit, handleChange, values }) => (
-          <form onSubmit={handleSubmit}>
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+  return (
+    <>
+      <h1>Sign Up</h1>
+          <form onSubmit={formik.handleSubmit}>
             <label htmlFor="firstName">First Name</label>
             <input
               name="firstName"
-              value={values.firstName}
-              onChange={handleChange}
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
             />
             <br />
             <br />
@@ -32,14 +31,14 @@ function App() {
             <label htmlFor="lastName">Last Name</label>
             <input
               name="lastName"
-              value={values.lastName}
-              onChange={handleChange}
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
             />
             <br />
             <br />
 
             <label htmlFor="email">Email</label>
-            <input name="email" value={values.email} onChange={handleChange} />
+            <input name="email" value={formik.values.email} onChange={formik.handleChange} />
             <br />
             <br />
 
@@ -48,35 +47,35 @@ function App() {
               type="radio"
               name="gender"
               value="male"
-              onChange={handleChange}
-              checked={values.gender === "male"}
+              onChange={formik.handleChange}
+              checked={formik.values.gender === "male"}
             />
             <span>Female</span>
             <input
               type="radio"
               name="gender"
               value="female"
-              onChange={handleChange}
+              onChange={formik.handleChange}
             />
             <br />
             <br />
             <div>
-              <input type="checkbox" name="hobies" value="Football" onChange={handleChange} />
+              <input type="checkbox" name="hobies" value="Football" onChange={formik.handleChange} />
               Football
             </div>
 
             <div>
-              <input type="checkbox" name="hobies" value="Cinema" onChange={handleChange} />
+              <input type="checkbox" name="hobies" value="Cinema" onChange={formik.handleChange} />
               Cinema
             </div>
             <div>
-              <input type="checkbox" name="hobies" value="Photography" onChange={handleChange} />
+              <input type="checkbox" name="hobies" value="Photography" onChange={formik.handleChange} />
               Photography
             </div>
             <br />
             <br />
 
-            <select name="country" value={values.country} onChange={handleChange}>
+            <select name="country" value={formik.values.country} onChange={formik.handleChange}>
               <option value="turkey">Turkey</option>
               <option value="england">England</option>
               <option value="usa">USA</option>
@@ -89,10 +88,9 @@ function App() {
 
             <br />
             <br />
-            <code>{JSON.stringify(values)}</code>
+            <code>{JSON.stringify(formik.values)}</code>
           </form>
-        )}
-      </Formik>
+  
     </>
   );
 }
