@@ -4,3 +4,13 @@
   padding: 2rem;
   text-align: center;
 }
+
+.app{
+  height: 100vh;
+}
+
+.app.light {
+  color: black;
+  background-color: white;
+}
+
